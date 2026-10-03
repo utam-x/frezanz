@@ -3,10 +3,10 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 
 const links = [
-  { label: "GITHUB", value: "utam-x / frezanz", href: "https://github.com/utam-x/frezanz", icon: "↗" },
-  { label: "INSTAGRAM", value: "di_pudo_lettoh", href: "https://www.instagram.com/di_pudo_lettoh?stkn=NzM4Z2FvdDVuaTRp", icon: "◎" },
-  { label: "INSTAGRAM", value: "frezanz", href: "https://www.instagram.com/frezanz?stkn=NnM1MmJqOW5vNmky", icon: "◎" },
-  { label: "YOUTUBE", value: "@frezanzzz", href: "https://youtube.com/@frezanzzz?si=OAX19epXEvd1JjQY", icon: "▶" },
+  { label: "GITHUB", value: "utam-x / frezanz", href: "https://github.com/utam-x/frezanz", icon: "â" },
+  { label: "INSTAGRAM", value: "di_pudo_lettoh", href: "https://www.instagram.com/di_pudo_lettoh?stkn=NzM4Z2FvdDVuaTRp", icon: "â" },
+  { label: "INSTAGRAM", value: "frezanz", href: "https://www.instagram.com/frezanz?stkn=NnM1MmJqOW5vNmky", icon: "â" },
+  { label: "YOUTUBE", value: "@frezanzzz", href: "https://youtube.com/@frezanzzz?si=OAX19epXEvd1JjQY", icon: "â¶" },
   { label: "EMAIL", value: "ujclnove@gmail.com", href: "mailto:ujclnove@gmail.com", icon: "@" },
 ];
 
@@ -76,7 +76,7 @@ function App() {
           <span className="brandCore">F</span><span>FREZANZ</span>
         </button>
         <div className="headerTools">
-          <button className="hudButton" onClick={() => openPanel("settings")} aria-label="Settings"><span className="gear">⚙</span><span>SETTINGS</span></button>
+          <button className="hudButton" onClick={() => openPanel("settings")} aria-label="Settings"><span className="gear">â</span><span>SETTINGS</span></button>
           <button className={`hudButton menuTrigger ${panel === "menu" ? "active" : ""}`} onClick={() => panel === "menu" ? close() : openPanel("menu")} aria-label="Menu"><span>MENU</span><i /><i /><i /></button>
         </div>
       </header>
@@ -84,9 +84,8 @@ function App() {
       <section className="hero" aria-label="Frezanz home">
         <div className="crosshair" aria-hidden="true">
           <span className="lineH" /><span className="lineV" /><span className="ring ringA" /><span className="ring ringB" />
-          <span className="tick t1" /><span className="tick t2" /><span className="tick t3" /><span className="tick t4" /><div className="core">F</div>
+          <span className="tick t1" /><span className="tick t2" /><span className="tick t3" /><span className="tick t4" />
         </div>
-        <div className="homeSignal"><span className="micro">PERSONAL INTERFACE / ONLINE</span><span className="sub">THINK · BUILD · EXPLORE</span></div>
         <div className="telemetry telemetryLeft"><span>SYS / 001</span><b>ACTIVE</b><i /></div>
         <div className="telemetry telemetryRight"><span>SPACE / 04D</span><b>000.001</b><i /></div>
       </section>
@@ -98,10 +97,10 @@ function App() {
               <>
                 <div className="panelHeader"><span>NAVIGATION</span><b>FREZANZ / SYSTEM</b></div>
                 <nav className="systemNav">
-                  <button onClick={close}><span>01</span><strong>HOME</strong><em>⌂</em></button>
+                  <button onClick={close}><span>01</span><strong>HOME</strong><em>â</em></button>
                   <button onClick={() => openPanel("about")}><span>02</span><strong>ABOUT</strong><em>+</em></button>
-                  <button onClick={() => openPanel("links")}><span>03</span><strong>LINKS</strong><em>↗</em></button>
-                  <button onClick={() => openPanel("settings")}><span>04</span><strong>SETTINGS</strong><em>⚙</em></button>
+                  <button onClick={() => openPanel("links")}><span>03</span><strong>LINKS</strong><em>â</em></button>
+                  <button onClick={() => openPanel("settings")}><span>04</span><strong>SETTINGS</strong><em>â</em></button>
                 </nav>
               </>
             )}
@@ -113,7 +112,7 @@ function App() {
                   <div className="aboutLead">
                     <span>WHO IS BEHIND IT</span>
                     <h2>FREZANZ</h2>
-                    <p>Frezanz is a personal space for <strong>thinking, building and exploring</strong>—especially where computer science, AI, physics, psychology and philosophy start to overlap.</p>
+                    <p>Frezanz is a personal space for <strong>thinking, building and exploring</strong>âespecially where computer science, AI, physics, psychology and philosophy start to overlap.</p>
                   </div>
                   <div className="aboutGrid">
                     <section>
@@ -173,7 +172,7 @@ function App() {
               </>
             )}
 
-            <button className="closeInterface" onClick={close}>× <span>CLOSE</span></button>
+            <button className="closeInterface" onClick={close}>Ã <span>CLOSE</span></button>
           </div>
         </div>
       )}
