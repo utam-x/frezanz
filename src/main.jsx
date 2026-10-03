@@ -44,8 +44,31 @@ function App(){
  const [active,setActive]=useState(null);
  const mx=useMotionValue(.5),my=useMotionValue(.5);
  const sx=useSpring(mx,{stiffness:80,damping:25}),sy=useSpring(my,{stiffness:80,damping:25});
- useEffect(()=>{const move=e=>{mx.set(e.clientX/innerWidth);my.set(e.clientY/innerHeight)};addEventListener("pointermove",move,{passive:true});return()=>removeEventListener("pointermove",move)},[]);
- return <div className="app">
+
+ useEffect(()=>{
+  const move=e=>{mx.set(e.clientX/innerWidth);my.set(e.clientY/innerHeight)};
+  addEventListener("pointermove",move,{passive:true});
+  return()=>removeEventListener("pointermove",move)
+ },[]);
+
+ useEffect(()=>{
+  if(!active)return;
+  const scrollY=window.scrollY;
+  const html=document.documentElement,body=document.body;
+  html.style.overflow="hidden";
+  body.style.overflow="hidden";
+  body.style.touchAction="none";
+  return()=>{
+   html.style.overflow="";
+   body.style.overflow="";
+   body.style.touchAction="";
+   window.scrollTo(0,scrollY);
+  };
+ },[active]);
+
+ const close=()=>setActive(null);
+
+ return <div className={"app"+(active?" interface-locked":"")}>
   <Grid/><Reactor/>
   <div className="scanlines"/>
   <header>
@@ -65,7 +88,7 @@ function App(){
     </div>
     <GlassPanel className="readout">
       <div className="readoutTop"><span>CORE</span><span>ACTIVE</span></div>
-      <div className="coreLine"><b>∞</b><span>CURIOUSITY<br/><small>MODE</small></span></div>
+      <div className="coreLine"><b>∞</b><span>CURIOSITY<br/><small>MODE</small></span></div>
       <div className="bars"><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
       <div className="readoutBottom"><span>POWER</span><strong>87.4%</strong></div>
     </GlassPanel>
@@ -75,7 +98,7 @@ function App(){
    <section id="modules" className="modules">
     <div className="sectionHead"><span>02 / MODULES</span><h2>THINGS<br/><em>WORTH BUILDING.</em></h2></div>
     <div className="moduleGrid">
-     {modules.map((m,i)=><motion.button key={m.id} className="module" onClick={()=>setActive(m)} whileHover={{y:-5}} whileTap={{scale:.99}}>
+     {modules.map(m=><motion.button key={m.id} className="module" onClick={()=>setActive(m)} whileHover={{y:-5}} whileTap={{scale:.99}}>
        <div className="moduleGlow"/>
        <span className="moduleId">{m.id}</span>
        <span className="moduleTag">{m.tag}</span>
@@ -95,12 +118,26 @@ function App(){
 
   <footer><span>FREZANZ / DIGITAL SPACE</span><span>TRANSMISSION COMPLETE</span></footer>
 
-  {active&&<motion.div className="modalWrap" initial={{opacity:0}} animate={{opacity:1}} onClick={()=>setActive(null)}>
-   <motion.div className="modal panel" initial={{scale:.96,y:18}} animate={{scale:1,y:0}} onClick={e=>e.stopPropagation()}>
-    <button className="close" onClick={()=>setActive(null)}>×</button>
-    <span>{active.id} / {active.tag}</span><h2>{active.title}</h2><p>{active.detail}</p><small>MODULE INTERFACE / IN DEVELOPMENT</small>
-   </motion.div>
+  {active&&<motion.div
+    className="modalWrap"
+    role="dialog"
+    aria-modal="true"
+    aria-label={active.title}
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    onClick={close}
+    onWheel={e=>e.stopPropagation()}
+    onTouchMove={e=>e.stopPropagation()}
+  >
+   <motion.section className="modal panel" initial={{scale:.96,y:18}} animate={{scale:1,y:0}} onClick={e=>e.stopPropagation()}>
+    <button className="close" aria-label="Close module" onClick={close}>×</button>
+    <span>{active.id} / {active.tag}</span>
+    <h2>{active.title}</h2>
+    <p>{active.detail}</p>
+    <small>MODULE INTERFACE / ACTIVE</small>
+   </motion.section>
   </motion.div>}
  </div>
 }
+
 createRoot(document.getElementById("root")).render(<App/>);
