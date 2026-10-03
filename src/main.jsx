@@ -2,119 +2,96 @@ import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
-const menuItems = [
-  { id: "home", label: "HOME" },
-  { id: "about", label: "ABOUT" },
-  { id: "links", label: "LINKS" },
-  { id: "sites", label: "OTHER SITES" },
-];
-
 function App() {
-  const [open, setOpen] = useState(false);
-  const [page, setPage] = useState("home");
+  const [menu, setMenu] = useState(false);
+  const [settings, setSettings] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = menu || settings ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [open]);
+  }, [menu, settings]);
 
-  const navigate = (id) => {
-    setPage(id);
-    setOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const close = () => { setMenu(false); setSettings(false); };
 
   return (
     <main className="app">
-      <div className="ambient ambientA" />
-      <div className="ambient ambientB" />
-      <div className="grain" />
+      <div className="hudGrid" />
+      <div className="scan" />
+      <div className="coreGlow" />
 
-      <header className="topbar">
-        <button className="brand" onClick={() => navigate("home")} aria-label="Frezanz home">
-          <span className="brandMark">F</span>
+      <header className="hudHeader">
+        <button className="brand" onClick={close} aria-label="Frezanz home">
+          <span className="brandCore">F</span>
           <span>FREZANZ</span>
         </button>
 
-        <button
-          className={`menuButton ${open ? "active" : ""}`}
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          <span>MENU</span>
-          <i /><i />
-        </button>
+        <div className="headerTools">
+          <button className="hudButton" onClick={() => { setSettings(!settings); setMenu(false); }} aria-label="Settings">
+            <span className="gear">⚙</span>
+            <span>SETTINGS</span>
+          </button>
+          <button className={`hudButton menuTrigger ${menu ? "active" : ""}`} onClick={() => { setMenu(!menu); setSettings(false); }} aria-label="Menu">
+            <span>MENU</span>
+            <i /><i /><i />
+          </button>
+        </div>
       </header>
 
-      <section className={`content page-${page}`}>
-        {page === "home" && (
-          <div className="home">
-            <div className="orbit orbitOne" />
-            <div className="orbit orbitTwo" />
-            <div className="homeCopy">
-              <p className="kicker">DIGITAL SPACE / 2026</p>
-              <h1>frezanz<span>.</span></h1>
-              <p className="homeLead">Ideas, systems, experiments<br />and things worth building.</p>
-            </div>
-            <div className="coordinate">26° // 4D</div>
-            <div className="scrollCue">SCROLL TO EXPLORE <b>↓</b></div>
-          </div>
-        )}
+      <section className="hero">
+        <div className="crosshair">
+          <span className="lineH" /><span className="lineV" />
+          <span className="ring ringA" /><span className="ring ringB" />
+          <span className="tick t1" /><span className="tick t2" /><span className="tick t3" /><span className="tick t4" />
+          <div className="core">F</div>
+        </div>
 
-        {page === "about" && (
-          <article className="pageContent">
-            <p className="kicker">01 / ABOUT</p>
-            <h2>Building at the edge of<br /><em>ideas & technology.</em></h2>
-            <div className="rule" />
-            <p className="bodyText">
-              Frezanz is a personal space for experiments across AI, computer science,
-              physics, psychology, philosophy and software.
-            </p>
-            <p className="bodyText muted">
-              A place to think, build, break things, and document what comes next.
-            </p>
-          </article>
-        )}
+        <div className="heroTitle">
+          <span className="micro">PERSONAL INTERFACE / ONLINE</span>
+          <h1>frezanz</h1>
+          <span className="sub">THINK · BUILD · EXPLORE</span>
+        </div>
 
-        {page === "links" && (
-          <article className="pageContent">
-            <p className="kicker">02 / LINKS</p>
-            <h2>Find me<br /><em>elsewhere.</em></h2>
-            <div className="linkList">
-              <a href="https://github.com/utam-x" target="_blank" rel="noreferrer"><span>01</span> GitHub <b>↗</b></a>
-              <a href="https://github.com/Frezanz" target="_blank" rel="noreferrer"><span>02</span> GitHub / Frezanz <b>↗</b></a>
-              <a href="#" onClick={(e) => e.preventDefault()}><span>03</span> Socials <b>↗</b></a>
-            </div>
-          </article>
-        )}
-
-        {page === "sites" && (
-          <article className="pageContent">
-            <p className="kicker">03 / OTHER SITES</p>
-            <h2>Other corners<br /><em>of the system.</em></h2>
-            <div className="siteGrid">
-              <a href="#" onClick={(e) => e.preventDefault()}><small>PROJECT / 01</small><strong>WORKSHOP</strong><span>Visual knowledge & learning</span></a>
-              <a href="#" onClick={(e) => e.preventDefault()}><small>PROJECT / 02</small><strong>CHAKMALEXICON</strong><span>Language & culture project</span></a>
-              <a href="#" onClick={(e) => e.preventDefault()}><small>PROJECT / 03</small><strong>KCHAT</strong><span>Multi-model AI experiments</span></a>
-            </div>
-          </article>
-        )}
+        <div className="telemetry telemetryLeft">
+          <span>SYS / 001</span>
+          <b>ACTIVE</b>
+          <i />
+        </div>
+        <div className="telemetry telemetryRight">
+          <span>SPACE / 04D</span>
+          <b>000.001</b>
+          <i />
+        </div>
       </section>
 
-      {open && (
-        <div className="menuOverlay" onClick={() => setOpen(false)}>
-          <nav className="menuPanel" onClick={(e) => e.stopPropagation()}>
-            <div className="menuHead"><span>NAVIGATION</span><small>FREZANZ / 001</small></div>
-            <div className="menuItems">
-              {menuItems.map((item, index) => (
-                <button key={item.id} className={page === item.id ? "selected" : ""} onClick={() => navigate(item.id)}>
-                  <span>0{index + 1}</span>{item.label}<b>↗</b>
-                </button>
-              ))}
-            </div>
-            <div className="menuFoot">CLOSE <button onClick={() => setOpen(false)}>ESC</button></div>
-          </nav>
+      {(menu || settings) && (
+        <div className="interfaceLayer" onClick={close}>
+          <div className="interfacePanel" onClick={e => e.stopPropagation()}>
+            {menu && (
+              <>
+                <div className="panelHeader"><span>NAVIGATION</span><b>FREZANZ / MENU</b></div>
+                <nav className="radialNav">
+                  <button onClick={close}><span>01</span><strong>HOME</strong><em>⌂</em></button>
+                  <button onClick={close}><span>02</span><strong>ABOUT</strong><em>+</em></button>
+                  <button onClick={close}><span>03</span><strong>LINKS</strong><em>↗</em></button>
+                  <button onClick={close}><span>04</span><strong>OTHER SITES</strong><em>◇</em></button>
+                </nav>
+              </>
+            )}
+
+            {settings && (
+              <>
+                <div className="panelHeader"><span>SYSTEM SETTINGS</span><b>FREZANZ / CONFIG</b></div>
+                <div className="settingsList">
+                  <div><span>INTERFACE</span><b>HOLOGRAPHIC</b></div>
+                  <div><span>DEPTH</span><b>2D / 2.5D</b></div>
+                  <div><span>ACCENT</span><b>CYAN</b></div>
+                  <div><span>MOTION</span><b>RESPONSIVE</b></div>
+                  <div><span>GRID</span><b>SPATIAL</b></div>
+                </div>
+              </>
+            )}
+            <button className="closeInterface" onClick={close}>× <span>CLOSE</span></button>
+          </div>
         </div>
       )}
     </main>
