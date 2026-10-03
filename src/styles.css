@@ -30,3 +30,43 @@ header{position:fixed;z-index:20;top:0;left:0;right:0;height:82px;padding:0 34px
 .modalWrap{background:rgba(2,5,8,.68);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px)}
 .modal{background:linear-gradient(135deg,rgba(255,255,255,.026),rgba(255,255,255,.004) 50%,rgba(120,180,220,.008))}
 .interface-locked::before,.interface-locked::after{opacity:0}
+
+
+/* Flat white-glass system: transparent page, no depth-heavy cards, transparent active UI. */
+html,body,#root{background:transparent!important}
+body{background-color:transparent!important}
+.app{background:transparent!important}
+.app::before,.app::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.34) 50%,transparent)!important;box-shadow:none!important}
+.app::after{background:linear-gradient(180deg,transparent,rgba(255,255,255,.34) 50%,transparent)!important}
+.panel,.module,.readout,.menu,.close{
+  background:rgba(255,255,255,.035)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-color:rgba(255,255,255,.20)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+}
+.panel::before,.panel::after,.module::before,.module::after{display:none!important}
+.moduleGlow{display:none!important}
+.module:hover{
+  background:rgba(255,255,255,.055)!important;
+  box-shadow:none!important;
+  transform:translateY(-3px);
+}
+.readout{background:rgba(255,255,255,.025)!important}
+.modalWrap{
+  background:rgba(255,255,255,.025)!important;
+  background-image:none!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+.modal{
+  background:rgba(255,255,255,.045)!important;
+  background-image:none!important;
+  box-shadow:none!important;
+  border-color:rgba(255,255,255,.24)!important;
+  backdrop-filter:blur(22px)!important;
+  -webkit-backdrop-filter:blur(22px)!important;
+}
+.modal::before,.modal::after{display:none!important}
+.close{background:rgba(255,255,255,.045)!important;box-shadow:none!important}
