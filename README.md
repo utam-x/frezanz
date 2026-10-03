@@ -1,20 +1,11 @@
 # frezanz
 
-A spatial personal website built as a digital space rather than a conventional portfolio.
+A lightweight spatial personal website / futuristic HUD interface.
 
 ## Stack
-
 - React + Vite
-- Three.js / React Three Fiber
-- Drei transmission material for glass-like 3D
 - Framer Motion
-- CSS glassmorphism
+- Canvas 2D for a minimal animated reactor
+- CSS glass / HUD system
 
-## Run
-
-```bash
-npm install
-npm run dev
-```
-
-The current build is intentionally content-light and focused on establishing the visual system.
+The interface intentionally avoids a continuously rendered 3D scene so the visual system stays responsive on mobile devices.
