@@ -70,3 +70,64 @@ body{background-color:transparent!important}
 }
 .modal::before,.modal::after{display:none!important}
 .close{background:rgba(255,255,255,.045)!important;box-shadow:none!important}
+
+
+/* Cardless typography mode: remove visual containers and make all interface text crisp. */
+.panel,.module,.readout,.menu,.close,.modal{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.panel::before,.panel::after,.module::before,.module::after,
+.moduleGlow{display:none!important}
+.module{
+  border-radius:0!important;
+  padding:27px 0!important;
+}
+.module:hover{
+  background:transparent!important;
+  box-shadow:none!important;
+  transform:translateY(-3px);
+}
+.moduleLine{background:currentColor!important;opacity:.7}
+.sectionHead{border:0!important}
+.statement{border-top:0!important}
+footer{border-top:0!important}
+.modalWrap{
+  background:transparent!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+.modal{
+  width:min(900px,92vw)!important;
+  min-height:auto!important;
+  padding:24px 0!important;
+  border-radius:0!important;
+}
+.modal h2,.hero h1,.sectionHead h2,.statement h2{
+  color:#ffffff!important;
+  font-weight:700!important;
+  text-shadow:0 0 18px rgba(255,255,255,.16);
+}
+body,.app,button,a,p,span,small,strong,h1,h2,h3,h4{
+  text-shadow:none;
+}
+.moduleId,.moduleTag,.eyebrow,.status,.menu span,.coordinates,.scrollHint,.readout,
+.footer,.module p,.statement p,.modal small{
+  color:rgba(245,250,255,.88)!important;
+  font-weight:600!important;
+}
+.module strong,.module h3,.module .strong{
+  color:#ffffff!important;
+  font-weight:700!important;
+}
+.logo{color:#ffffff!important;font-weight:700!important}
+.close{
+  color:#ffffff!important;
+  opacity:1!important;
+  font-weight:700!important;
+}
