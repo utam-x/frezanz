@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 
 const links = [
-  { label: "GITHUB", value: "utam-x / frezanz", href: "https://github.com/utam-x/frezanz", icon: "↗" },
+  { label: "GITHUB", value: "utam-x / frezanz", href: "https://github.com/Frezanz", icon: "↗" },
   { label: "INSTAGRAM", value: "di_pudo_lettoh", href: "https://www.instagram.com/di_pudo_lettoh?stkn=NzM4Z2FvdDVuaTRp", icon: "◎" },
   { label: "INSTAGRAM", value: "frezanz", href: "https://www.instagram.com/frezanz?stkn=NnM1MmJqOW5vNmky", icon: "◎" },
   { label: "YOUTUBE", value: "@frezanzzz", href: "https://youtube.com/@frezanzzz?si=OAX19epXEvd1JjQY", icon: "▶" },
