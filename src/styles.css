@@ -11,3 +11,22 @@ header{position:fixed;z-index:20;top:0;left:0;right:0;height:82px;padding:0 34px
 .interface-locked> :not(.modalWrap){opacity:0!important;visibility:hidden!important;pointer-events:none!important;user-select:none!important}.interface-locked{height:100svh;overflow:hidden}.modalWrap{position:fixed;z-index:999;inset:0;width:100vw;height:100svh;background:radial-gradient(circle at 50% 45%,rgba(100,155,205,.10),transparent 34%),rgba(2,5,8,.96);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);display:grid;place-items:center;padding:24px;overscroll-behavior:contain;touch-action:none}.modal{width:min(900px,92vw);min-height:min(620px,82svh);padding:42px;position:relative;border-radius:42px;background:linear-gradient(135deg,rgba(255,255,255,.085),rgba(255,255,255,.018) 50%,rgba(120,180,220,.035))}.modal h2{font-size:clamp(55px,9vw,120px);letter-spacing:-.07em;line-height:.82;margin:100px 0 24px}.modal p{font-size:16px;line-height:1.7;color:#9eb1c2;max-width:560px}.modal small{position:absolute;bottom:32px;left:42px;color:#617487;font:9px "IBM Plex Mono";letter-spacing:.15em}.close{z-index:2;position:absolute;right:20px;top:20px;border:1px solid var(--line);background:rgba(255,255,255,.025);width:35px;height:35px;border-radius:50%;cursor:pointer;font-size:20px;color:#a7bdcf;backdrop-filter:blur(10px)}
 @media(max-width:760px){header{padding:0 18px}.status{display:none}.heroLeft{left:7vw;top:30%}.hero h1{font-size:58px}.coordinates{right:7vw;top:21%;font-size:8px}.readout{right:7vw;bottom:12%;width:165px}.modules{padding:100px 18px}.sectionHead{display:block;margin-bottom:45px}.sectionHead h2{margin-top:20px}.moduleGrid{grid-template-columns:1fr}.module{min-height:260px;border-radius:28px}.statement{grid-template-columns:1fr;gap:35px;padding:90px 18px 120px}footer{padding:20px 18px;gap:20px;flex-wrap:wrap}.scrollHint{left:7vw}.reactor{opacity:.8}.modalWrap{padding:14px}.modal{width:100%;min-height:calc(100svh - 28px);border-radius:32px;padding:28px}.modal h2{margin-top:100px}.modal small{left:28px;bottom:26px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.crosshair{display:none}}
+
+
+/* Transparent spatial background: only the X/Y coordinate axes remain. */
+.app{background:transparent}
+.grid,.reactor,.scanlines{display:none!important}
+.app::before,.app::after{content:"";position:fixed;z-index:2;pointer-events:none}
+.app::before{left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(190,220,245,.16) 15%,rgba(190,220,245,.28) 50%,rgba(190,220,245,.16) 85%,transparent);box-shadow:0 0 14px rgba(150,205,255,.035)}
+.app::after{top:0;bottom:0;left:50%;width:1px;background:linear-gradient(180deg,transparent,rgba(190,220,245,.16) 15%,rgba(190,220,245,.28) 50%,rgba(190,220,245,.16) 85%,transparent);box-shadow:0 0 14px rgba(150,205,255,.035)}
+.panel{background:linear-gradient(135deg,rgba(255,255,255,.024),rgba(255,255,255,.004) 48%,rgba(185,220,250,.01));border-color:rgba(235,248,255,.12);box-shadow:inset 1px 1px 0 rgba(255,255,255,.10),inset -1px -1px 0 rgba(120,165,205,.05),0 18px 55px rgba(0,0,0,.10);backdrop-filter:blur(20px) saturate(115%);-webkit-backdrop-filter:blur(20px) saturate(115%)}
+.panel:before{background:linear-gradient(115deg,rgba(255,255,255,.035),transparent 18%,transparent 72%,rgba(255,255,255,.012))}
+.panel:after{opacity:.18}
+.module{background:linear-gradient(145deg,rgba(255,255,255,.018),rgba(255,255,255,.003) 55%,rgba(150,195,230,.006));border-color:rgba(230,246,255,.10);box-shadow:inset 1px 1px 0 rgba(255,255,255,.08),inset -1px -1px 0 rgba(100,150,190,.04),0 18px 50px rgba(0,0,0,.08);backdrop-filter:blur(20px) saturate(110%);-webkit-backdrop-filter:blur(20px) saturate(110%)}
+.module:before{background:radial-gradient(circle at 20% 0%,rgba(255,255,255,.025),transparent 30%),linear-gradient(115deg,transparent 25%,rgba(210,240,255,.008),transparent 70%)}
+.module:after{opacity:.14}
+.moduleGlow{opacity:.35}
+.readout{background:linear-gradient(135deg,rgba(240,248,255,.018),rgba(120,170,210,.004))}
+.modalWrap{background:rgba(2,5,8,.68);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px)}
+.modal{background:linear-gradient(135deg,rgba(255,255,255,.026),rgba(255,255,255,.004) 50%,rgba(120,180,220,.008))}
+.interface-locked::before,.interface-locked::after{opacity:0}
