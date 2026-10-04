@@ -30,7 +30,7 @@ function About() {
       <span>02</span><h3>THE WEBSITE</h3>
       <p>This is not meant to be a complete record of me.</p>
       <p>It is a changing collection of things:</p>
-      <p>ideas ÃÂ· experiments ÃÂ· projects ÃÂ· images ÃÂ· questions ÃÂ· observations ÃÂ· things I'm learning ÃÂ· things I'm trying to understand ÃÂ· and things that probably shouldn't have worked but somehow did.</p>
+      <p>ideas ÃÂÃÂ· experiments ÃÂÃÂ· projects ÃÂÃÂ· images ÃÂÃÂ· questions ÃÂÃÂ· observations ÃÂÃÂ· things I'm learning ÃÂÃÂ· things I'm trying to understand ÃÂÃÂ· and things that probably shouldn't have worked but somehow did.</p>
       <p>The website exists to give those things somewhere to meet.</p>
       <p>A project may lead to a thought. A thought may become a project. An image may become a memory. A question may remain a question.</p>
       <p>There isn't always a straight line between them.</p>
@@ -71,7 +71,7 @@ function About() {
       <p>You don't have to agree with me.</p>
       <p>You don't have to understand everything.</p>
       <p>You don't even have to like it.</p>
-      <p>But if something here makes you stop for a momentÃ¢ÂÂquestion it.</p>
+      <p>But if something here makes you stop for a momentÃÂ¢ÃÂÃÂquestion it.</p>
       <p>That is probably more valuable than simply liking it.</p>
     </section>
     <section>
@@ -91,10 +91,10 @@ function About() {
       <p>Or maybe there are too many.</p>
       <p>A website can be a portfolio. An archive. A laboratory. A notebook. A public space. A way of remembering.</p>
       <p>This one can be whatever it becomes.</p>
-      <p>For now, it is a place where I put things worth keepingÃ¢ÂÂand a place where you might find something worth taking.</p>
+      <p>For now, it is a place where I put things worth keepingÃÂ¢ÃÂÃÂand a place where you might find something worth taking.</p>
     </section>
   </div>
-  <div className="aboutFooter"><strong>FREZANZ</strong><span>explore Ã¢ÂÂ make Ã¢ÂÂ question Ã¢ÂÂ return</span></div>
+  <div className="aboutFooter"><strong>FREZANZ</strong><span>explore ÃÂ¢ÃÂÃÂ make ÃÂ¢ÃÂÃÂ question ÃÂ¢ÃÂÃÂ return</span></div>
 </article>);
 }
 
@@ -202,7 +202,7 @@ function App() {
 
       <section className={`homeAbout ${homeAboutOpen ? "isOpen" : "isCollapsed"}`} aria-label="About Frezanz">
         <button className="homeAboutHeader" onClick={() => { uiSound("click"); setHomeAboutOpen(v => !v); }} aria-expanded={homeAboutOpen}>
-          <span>ABOUT</span><b>FREZANZ / IDENTITY</b><em>{homeAboutOpen ? "â" : "+"}</em>
+          <span>ABOUT</span><b>FREZANZ / IDENTITY</b><em>{homeAboutOpen ? "Ã¢ÂÂ" : "+"}</em>
         </button>
         {homeAboutOpen && <About />}
       </section>
@@ -214,10 +214,10 @@ function App() {
               <>
                 <div className="panelHeader"><span>NAVIGATION</span><b>FREZANZ / SYSTEM</b></div>
                 <nav className="systemNav">
-                  <button onClick={close}><span>01</span><strong>HOME</strong><em>></em></button>
+                  <button onClick={close}><span>01</span><strong>HOME</strong><em>&gt;</em></button>
                   <button onClick={() => openPanel("about")}><span>02</span><strong>ABOUT</strong><em>+</em></button>
-                  <button onClick={() => openPanel("links")}><span>03</span><strong>LINKS</strong><em>></em></button>
-                  <button onClick={() => openPanel("settings")}><span>04</span><strong>SETTINGS</strong><em>></em></button>
+                  <button onClick={() => openPanel("links")}><span>03</span><strong>LINKS</strong><em>&gt;</em></button>
+                  <button onClick={() => openPanel("settings")}><span>04</span><strong>SETTINGS</strong><em>&gt;</em></button>
                 </nav>
               </>
             )}
@@ -266,7 +266,7 @@ function App() {
               </>
             )}
 
-            <button className="closeInterface" onClick={close}>ÃÂ <span>CLOSE</span></button>
+            <button className="closeInterface" onClick={close}>ÃÂÃÂ <span>CLOSE</span></button>
           </div>
         </div>
       )}
