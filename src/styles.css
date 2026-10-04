@@ -241,3 +241,41 @@ a{text-decoration:none}
 .brand{
   color:rgba(235,251,255,.88);
 }
+
+/* Final opacity pass: lighter than the previous ~35% feel */
+.interfacePanel{background:rgba(2,13,18,.055) !important}
+.systemNav button{background:rgba(100,200,215,.018) !important}
+.aboutGrid section{background:rgba(100,200,215,.012) !important}
+.linksList a,.settingsList>div{background:rgba(100,200,215,.009) !important}
+
+/* Dynamic scroll ruler / measurement indicator */
+.scrollMeter{
+  position:fixed;z-index:35;top:18vh;right:10px;height:64vh;width:36px;
+  display:flex;flex-direction:column;align-items:center;pointer-events:none;
+  font:7px "DM Mono",monospace;letter-spacing:.08em;color:rgba(135,220,235,.52);
+}
+.scrollMeterTrack{
+  position:absolute;top:18px;bottom:18px;left:50%;width:1px;transform:translateX(-50%);
+  background:rgba(110,220,240,.24);
+}
+.scrollMeterTrack i{
+  position:absolute;left:-4px;width:8px;height:1px;background:rgba(120,225,245,.42);
+}
+.scrollMeterTrack i:nth-child(1){top:0}.scrollMeterTrack i:nth-child(2){top:10%}
+.scrollMeterTrack i:nth-child(3){top:20%}.scrollMeterTrack i:nth-child(4){top:30%}
+.scrollMeterTrack i:nth-child(5){top:40%}.scrollMeterTrack i:nth-child(6){top:50%}
+.scrollMeterTrack i:nth-child(7){top:60%}.scrollMeterTrack i:nth-child(8){top:70%}
+.scrollMeterTrack i:nth-child(9){top:80%}.scrollMeterTrack i:nth-child(10){top:90%}
+.scrollMeterTrack i:nth-child(11){top:100%}
+.scrollMeterTrack b{
+  position:absolute;left:-5px;width:11px;height:16px;transform:translateY(-50%);
+  border:1px solid rgba(110,235,255,.9);background:rgba(80,220,245,.08);
+  box-shadow:0 0 9px rgba(80,220,245,.16);transition:top .1s linear;
+}
+.scrollMeter>span{position:absolute;right:0}
+.scrollMeter>span:nth-of-type(1){top:0}
+.scrollMeter>span:nth-of-type(2){top:50%;transform:translateY(-50%)}
+.scrollMeter>span:nth-of-type(3){bottom:0}
+@media(max-width:700px){
+  .scrollMeter{right:5px;width:28px;height:58vh;top:21vh}
+}
