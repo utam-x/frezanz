@@ -3,10 +3,10 @@ import { createRoot } from "react-dom/client";
 import "./styles.css";
 
 const links = [
-  { label: "GITHUB", value: "utam-x / frezanz", href: "https://github.com/utam-x/frezanz", icon: "↗" },
-  { label: "INSTAGRAM", value: "di_pudo_lettoh", href: "https://www.instagram.com/di_pudo_lettoh?stkn=NzM4Z2FvdDVuaTRp", icon: "◎" },
-  { label: "INSTAGRAM", value: "frezanz", href: "https://www.instagram.com/frezanz?stkn=NnM1MmJqOW5vNmky", icon: "◎" },
-  { label: "YOUTUBE", value: "@frezanzzz", href: "https://youtube.com/@frezanzzz?si=OAX19epXEvd1JjQY", icon: "▶" },
+  { label: "GITHUB", value: "utam-x / frezanz", href: "https://github.com/utam-x/frezanz", icon: "â" },
+  { label: "INSTAGRAM", value: "di_pudo_lettoh", href: "https://www.instagram.com/di_pudo_lettoh?stkn=NzM4Z2FvdDVuaTRp", icon: "â" },
+  { label: "INSTAGRAM", value: "frezanz", href: "https://www.instagram.com/frezanz?stkn=NnM1MmJqOW5vNmky", icon: "â" },
+  { label: "YOUTUBE", value: "@frezanzzz", href: "https://youtube.com/@frezanzzz?si=OAX19epXEvd1JjQY", icon: "â¶" },
   { label: "EMAIL", value: "ujclnove@gmail.com", href: "mailto:ujclnove@gmail.com", icon: "@" },
 ];
 
@@ -30,7 +30,7 @@ function About() {
       <span>02</span><h3>THE WEBSITE</h3>
       <p>This is not meant to be a complete record of me.</p>
       <p>It is a changing collection of things:</p>
-      <p>ideas · experiments · projects · images · questions · observations · things I'm learning · things I'm trying to understand · and things that probably shouldn't have worked but somehow did.</p>
+      <p>ideas Â· experiments Â· projects Â· images Â· questions Â· observations Â· things I'm learning Â· things I'm trying to understand Â· and things that probably shouldn't have worked but somehow did.</p>
       <p>The website exists to give those things somewhere to meet.</p>
       <p>A project may lead to a thought. A thought may become a project. An image may become a memory. A question may remain a question.</p>
       <p>There isn't always a straight line between them.</p>
@@ -71,7 +71,7 @@ function About() {
       <p>You don't have to agree with me.</p>
       <p>You don't have to understand everything.</p>
       <p>You don't even have to like it.</p>
-      <p>But if something here makes you stop for a moment—question it.</p>
+      <p>But if something here makes you stop for a momentâquestion it.</p>
       <p>That is probably more valuable than simply liking it.</p>
     </section>
     <section>
@@ -91,10 +91,10 @@ function About() {
       <p>Or maybe there are too many.</p>
       <p>A website can be a portfolio. An archive. A laboratory. A notebook. A public space. A way of remembering.</p>
       <p>This one can be whatever it becomes.</p>
-      <p>For now, it is a place where I put things worth keeping—and a place where you might find something worth taking.</p>
+      <p>For now, it is a place where I put things worth keepingâand a place where you might find something worth taking.</p>
     </section>
   </div>
-  <div className="aboutFooter"><strong>FREZANZ</strong><span>explore → make → question → return</span></div>
+  <div className="aboutFooter"><strong>FREZANZ</strong><span>explore â make â question â return</span></div>
 </article>);
 }
 
@@ -102,6 +102,7 @@ function App() {
   const [panel, setPanel] = useState(null);
   const [sound, setSound] = useState(() => localStorage.getItem("frezanz-ui-sound") !== "off");
   const [volume, setVolume] = useState(() => Number(localStorage.getItem("frezanz-ui-volume") ?? 0.22));
+  const [homeAboutOpen, setHomeAboutOpen] = useState(true);
   const audioRef = useRef(null);
 
   useEffect(() => {
@@ -183,9 +184,11 @@ function App() {
         <div className="telemetry telemetryRight"><span>SPACE / 04D</span><b>000.001</b><i /></div>
       </section>
 
-      <section className="homeAbout" aria-label="About Frezanz">
-        <div className="homeAboutHeader"><span>ABOUT</span><b>FREZANZ / IDENTITY</b></div>
-        <About />
+      <section className={`homeAbout ${homeAboutOpen ? "isOpen" : "isCollapsed"}`} aria-label="About Frezanz">
+        <button className="homeAboutHeader" onClick={() => { uiSound("click"); setHomeAboutOpen(v => !v); }} aria-expanded={homeAboutOpen}>
+          <span>ABOUT</span><b>FREZANZ / IDENTITY</b><em>{homeAboutOpen ? "−" : "+"}</em>
+        </button>
+        {homeAboutOpen && <About />}
       </section>
 
       {panel && (
@@ -195,10 +198,10 @@ function App() {
               <>
                 <div className="panelHeader"><span>NAVIGATION</span><b>FREZANZ / SYSTEM</b></div>
                 <nav className="systemNav">
-                  <button onClick={close}><span>01</span><strong>HOME</strong><em>◌</em></button>
+                  <button onClick={close}><span>01</span><strong>HOME</strong><em>â</em></button>
                   <button onClick={() => openPanel("about")}><span>02</span><strong>ABOUT</strong><em>+</em></button>
-                  <button onClick={() => openPanel("links")}><span>03</span><strong>LINKS</strong><em>↗</em></button>
-                  <button onClick={() => openPanel("settings")}><span>04</span><strong>SETTINGS</strong><em>⚙</em></button>
+                  <button onClick={() => openPanel("links")}><span>03</span><strong>LINKS</strong><em>â</em></button>
+                  <button onClick={() => openPanel("settings")}><span>04</span><strong>SETTINGS</strong><em>â</em></button>
                 </nav>
               </>
             )}
@@ -247,7 +250,7 @@ function App() {
               </>
             )}
 
-            <button className="closeInterface" onClick={close}>× <span>CLOSE</span></button>
+            <button className="closeInterface" onClick={close}>Ã <span>CLOSE</span></button>
           </div>
         </div>
       )}
