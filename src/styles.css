@@ -170,3 +170,74 @@ a{text-decoration:none}
   .homeAboutHeader em{position:absolute;right:0}
   .homeAboutHeader b{padding-right:28px}
 }
+
+
+/* Final translucent glass treatment */
+.hudHeader{
+  background:rgba(2,8,12,.10);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+.interfaceLayer{
+  background:rgba(0,8,12,.20);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.interfacePanel{
+  background:rgba(105,190,205,.055);
+  border-color:rgba(135,235,255,.82);
+  box-shadow:0 0 0 1px rgba(135,235,255,.12),0 20px 80px rgba(0,170,220,.04),inset 0 0 50px rgba(80,220,245,.015);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+.systemNav button{
+  background:rgba(100,200,215,.045);
+  border-color:rgba(135,235,255,.72);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.systemNav button:hover{background:rgba(100,200,215,.075)}
+.aboutGrid{
+  background:rgba(100,210,225,.16);
+}
+.aboutGrid section{
+  background:rgba(100,200,215,.035) !important;
+  border-color:rgba(135,235,255,.64);
+  backdrop-filter:blur(4px) !important;
+  -webkit-backdrop-filter:blur(4px) !important;
+}
+.linksList a{
+  background:rgba(100,200,215,.025);
+  border-color:rgba(135,235,255,.52);
+}
+.linksList a:hover{background:rgba(100,200,215,.065)}
+.homeAboutHeader{
+  background:rgba(100,200,215,.025);
+}
+.settingsList>div{
+  background:rgba(100,200,215,.02);
+}
+.panelHeader,.homeAboutHeader,
+.aboutLead span,.aboutGrid span,
+.linksList small,.linkIndex,
+.settingsList>div,.sourceLine span{
+  color:rgba(135,220,235,.72);
+}
+.aboutLead h2,.aboutGrid h3,.linksList strong,.settingsList b{
+  color:rgba(235,251,255,.88);
+}
+.aboutLead p,.aboutGrid p{
+  color:rgba(170,210,218,.72);
+}
+.aboutFooter strong{
+  color:rgba(235,251,255,.82);
+}
+.aboutFooter span,.sourceLine a{
+  color:rgba(115,220,240,.68);
+}
+.hudButton,.closeInterface{
+  color:rgba(170,220,228,.72);
+}
+.brand{
+  color:rgba(235,251,255,.88);
+}
